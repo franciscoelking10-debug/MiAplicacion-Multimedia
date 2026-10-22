@@ -1,31 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Colores Primarios Institucionales / Modernos -->
+    <!-- Colores Primarios Institucionales Santo Tomás -->
     <color name="primary">#006847</color>
-    <color name="primary_dark">#004d34</color>
+    <color name="primary_dark">#004D34</color>
     <color name="primary_light">#E8F5E9</color>
     <color name="accent">#00A86B</color>
+    <color name="accent_teal">#0D9488</color>
     
-    <!-- Colores de Fondo y Superficie -->
-    <color name="background">#F4F6F9</color>
+    <!-- Colores de Fondo y Superficie (Estilo Material Moderno) -->
+    <color name="background">#F1F5F9</color>
     <color name="surface_card">#FFFFFF</color>
     <color name="surface_card_stroke">#E2E8F0</color>
+    <color name="surface_card_hover">#F8FAFC</color>
+    <color name="surface_dark">#0F172A</color>
     
-    <!-- Colores de Texto -->
-    <color name="text_primary">#1A202C</color>
-    <color name="text_secondary">#4A5568</color>
-    <color name="text_muted">#718096</color>
+    <!-- Colores de Texto con Alto Contraste -->
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#475569</color>
+    <color name="text_muted">#64748B</color>
     <color name="text_on_primary">#FFFFFF</color>
+    <color name="text_on_dark">#F8FAFC</color>
     
-    <!-- Estados y Acentos -->
-    <color name="state_active">#10B981</color>
-    <color name="state_warning">#F59E0B</color>
-    <color name="state_info">#3B82F6</color>
-    <color name="state_danger">#EF4444</color>
+    <!-- Estados y Acentos Semánticos -->
+    <color name="state_active">#16A34A</color>
+    <color name="state_warning">#D97706</color>
+    <color name="state_info">#2563EB</color>
+    <color name="state_danger">#DC2626</color>
     
-    <!-- Tablas y Elementos UI -->
-    <color name="table_header_bg">#006847</color>
-    <color name="table_header_text">#FFFFFF</color>
-    <color name="table_row_alt">#F8FAFC</color>
-    <color name="table_border">#CBD5E1</color>
+    <!-- Fondos de Insignias y Chips -->
+    <color name="badge_green_bg">#DCFCE7</color>
+    <color name="badge_green_text">#15803D</color>
+    <color name="badge_amber_bg">#FEF3C7</color>
+    <color name="badge_amber_text">#B45309</color>
+    <color name="badge_blue_bg">#DBEAFE</color>
+    <color name="badge_blue_text">#1D4ED8</color>
 </resources>

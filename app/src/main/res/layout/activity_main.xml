@@ -1,776 +1,834 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 
-    IEI-093 | Programación Android - Actividad 1.3
-    Demostración integral de:
-    1. ConstraintLayout (Contenedor raíz y encabezado responsivo)
-    2. LinearLayout (Alineaciones verticales y horizontales para formularios y botones)
-    3. TableLayout (Estructuración matricial con TableRow)
-    4. TextViews (Títulos, etiquetas, autosizing TextView)
-    5. Buttons (Botones interactivos con eventos en Java)
--->
-<androidx.constraintlayout.widget.ConstraintLayout 
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
     tools:context=".MainActivity">
 
-    <!-- ========================================================================= -->
-    <!-- ENCABEZADO SUPERIOR: Diseñado con ConstraintLayout                      -->
-    <!-- ========================================================================= -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/headerLayout"
-        android:layout_width="0dp"
+    <!-- AppBar / Header Elegante Santo Tomás -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_header_gradient"
-        android:paddingStart="20dp"
-        android:paddingTop="28dp"
-        android:paddingEnd="20dp"
-        android:paddingBottom="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <!-- Badge de la actividad -->
-        <TextView
-            android:id="@+id/tvBadge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_card"
-            android:backgroundTint="#2E7D32"
-            android:paddingStart="10dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="10dp"
-            android:paddingBottom="4dp"
-            android:text="@string/app_badge"
-            android:textColor="@color/text_on_primary"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <!-- Título principal -->
-        <TextView
-            android:id="@+id/tvAppTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/app_name"
-            android:textColor="@color/text_on_primary"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/btnResetGlobal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvBadge" />
-
-        <!-- Subtítulo institucional -->
-        <TextView
-            android:id="@+id/tvSubtitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:text="@string/app_subtitle"
-            android:textColor="#C8E6C9"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/btnResetGlobal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvAppTitle" />
-
-        <!-- Botón de reinicio global posicionado con restricciones en el encabezado -->
-        <Button
-            android:id="@+id/btnResetGlobal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#EF5350"
-            android:text="@string/btn_reset_all"
-            android:textColor="@color/text_on_primary"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/tvSubtitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvAppTitle" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <!-- ========================================================================= -->
-    <!-- CONTENIDO CON SCROLLVIEW PARA VISUALIZAR TODOS LOS LAYOUTS                -->
-    <!-- ========================================================================= -->
-    <ScrollView
-        android:id="@+id/scrollViewContent"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:clipToPadding="false"
-        android:padding="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerLayout">
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:background="@drawable/bg_header_gradient"
+            android:elevation="6dp"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingTop="28dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="24dp">
 
-            <!-- ================================================================= -->
-            <!-- SECCIÓN 1: DEMOSTRACIÓN DE LINEARLAYOUT                          -->
-            <!-- ================================================================= -->
+            <!-- Fila Superior: Badge Institucional y API -->
             <LinearLayout
-                android:id="@+id/cardLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#26FFFFFF"
+                    android:paddingStart="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="4dp"
+                    android:text="@string/app_institution"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#33000000"
+                    android:paddingStart="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="4dp"
+                    android:text="@string/app_tag_api"
+                    android:textColor="#E0F2F1"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- Título Principal -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="@string/app_header_title"
+                android:textColor="#FFFFFF"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <!-- Subtítulo -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/app_header_subtitle"
+                android:textColor="#E8F5E9"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Contenido Scrollable -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingTop="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="32dp">
+
+            <!-- ============================================================ -->
+            <!-- CARD 0: RESUMEN Y GESTIÓN DE PERMISOS (API 30)              -->
+            <!-- ============================================================ -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/bg_card"
-                android:elevation="3dp"
-                android:orientation="vertical"
-                android:padding="16dp">
+                app:cardBackgroundColor="@color/surface_card"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/surface_card_stroke"
+                app:strokeWidth="1dp">
 
-                <TextView
-                    android:id="@+id/tvLinearTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/section_linear_title"
-                    android:textColor="@color/primary"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="12dp"
-                    android:text="@string/section_linear_desc"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="13sp" />
-
-                <!-- Formulario vertical -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_nombre"
-                    android:textColor="@color/text_primary"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/etNombre"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="10dp"
-                    android:autofillHints="name"
-                    android:background="@drawable/bg_table_cell"
-                    android:hint="@string/hint_nombre"
-                    android:inputType="textPersonName"
-                    android:paddingStart="12dp"
-                    android:paddingEnd="12dp"
-                    android:textColor="@color/text_primary"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_carrera"
-                    android:textColor="@color/text_primary"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/etCarrera"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="14dp"
-                    android:autofillHints="jobTitle"
-                    android:background="@drawable/bg_table_cell"
-                    android:hint="@string/hint_carrera"
-                    android:inputType="text"
-                    android:paddingStart="12dp"
-                    android:paddingEnd="12dp"
-                    android:textColor="@color/text_primary"
-                    android:textSize="14sp" />
-
-                <!-- LinearLayout Horizontal para los botones de acción -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                    <Button
-                        android:id="@+id/btnSaludar"
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="@color/primary"
-                        android:text="@string/btn_saludar"
-                        android:textColor="@color/text_on_primary" />
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
-                    <Button
-                        android:id="@+id/btnLimpiar"
-                        android:layout_width="0dp"
+                        <ImageView
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:src="@drawable/ic_permission_shield"
+                            app:tint="@color/primary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/section_permissions_title"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="@color/text_secondary"
-                        android:text="@string/btn_limpiar"
-                        android:textColor="@color/text_on_primary" />
-                </LinearLayout>
+                        android:layout_marginTop="6dp"
+                        android:lineSpacingExtra="2dp"
+                        android:text="@string/section_permissions_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
 
-            </LinearLayout>
+                    <!-- Estado del Permiso -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/bg_image_frame"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="12dp">
 
-            <!-- ================================================================= -->
-            <!-- SECCIÓN 2: DEMOSTRACIÓN DE TABLELAYOUT                           -->
-            <!-- ================================================================= -->
-            <LinearLayout
-                android:id="@+id/cardTableLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/bg_card"
-                android:elevation="3dp"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:id="@+id/tvTableTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/section_table_title"
-                    android:textColor="@color/primary"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="12dp"
-                    android:text="@string/section_table_desc"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="13sp" />
-
-                <!-- Contenedor TableLayout con columna 1 auto-expandible -->
-                <TableLayout
-                    android:id="@+id/tableAsignaturas"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:stretchColumns="1">
-
-                    <!-- Fila 0: Encabezados -->
-                    <TableRow
-                        android:background="@drawable/bg_table_header"
-                        android:padding="8dp">
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_check_circle"
+                            app:tint="@color/primary" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:padding="4dp"
-                            android:text="@string/th_codigo"
-                            android:textColor="@color/table_header_text"
-                            android:textSize="13sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:padding="4dp"
-                            android:text="@string/th_asignatura"
-                            android:textColor="@color/table_header_text"
-                            android:textSize="13sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:padding="4dp"
-                            android:text="@string/th_semestre"
-                            android:textColor="@color/table_header_text"
-                            android:textSize="13sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:padding="4dp"
-                            android:text="@string/th_estado"
-                            android:textColor="@color/table_header_text"
-                            android:textSize="13sp"
-                            android:textStyle="bold" />
-                    </TableRow>
-
-                    <!-- Fila 1: Asignatura 1 -->
-                    <TableRow
-                        android:background="@color/table_row_alt"
-                        android:padding="8dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:padding="4dp"
-                            android:text="@string/row1_cod"
-                            android:textColor="@color/text_primary"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:padding="4dp"
-                            android:text="@string/row1_asig"
-                            android:textColor="@color/text_primary"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:padding="4dp"
-                            android:text="@string/row1_sem"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/label_permission_status"
                             android:textColor="@color/text_secondary"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:padding="4dp"
-                            android:text="@string/row1_est"
-                            android:textColor="@color/state_active"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-                    </TableRow>
-
-                    <!-- Fila 2: Asignatura 2 -->
-                    <TableRow
-                        android:background="@color/surface_card"
-                        android:padding="8dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:padding="4dp"
-                            android:text="@string/row2_cod"
-                            android:textColor="@color/text_primary"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:padding="4dp"
-                            android:text="@string/row2_asig"
-                            android:textColor="@color/text_primary"
-                            android:textSize="12sp"
+                            android:textSize="13sp"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:id="@+id/tvPermissionStatus"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:padding="4dp"
-                            android:text="@string/row2_sem"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:padding="4dp"
-                            android:text="@string/row2_est"
-                            android:textColor="@color/state_active"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-                    </TableRow>
-
-                    <!-- Fila 3: Asignatura 3 -->
-                    <TableRow
-                        android:background="@color/table_row_alt"
-                        android:padding="8dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:padding="4dp"
-                            android:text="@string/row3_cod"
-                            android:textColor="@color/text_primary"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:padding="4dp"
-                            android:text="@string/row3_asig"
-                            android:textColor="@color/text_primary"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:padding="4dp"
-                            android:text="@string/row3_sem"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:padding="4dp"
-                            android:text="@string/row3_est"
+                            android:layout_marginStart="6dp"
+                            android:layout_weight="1"
+                            android:text="@string/permission_status_checking"
                             android:textColor="@color/state_warning"
-                            android:textSize="12sp"
+                            android:textSize="13sp"
                             android:textStyle="bold" />
-                    </TableRow>
+                    </LinearLayout>
 
-                </TableLayout>
-
-                <!-- Botón para interactuar con la tabla -->
-                <Button
-                    android:id="@+id/btnToggleTable"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:backgroundTint="@color/accent"
-                    android:text="@string/btn_toggle_table"
-                    android:textColor="@color/text_on_primary" />
-
-            </LinearLayout>
-
-            <!-- ================================================================= -->
-            <!-- SECCIÓN 3: TEXTVIEWS Y BOTONES CON INTERACCIÓN DINÁMICA           -->
-            <!-- ================================================================= -->
-            <LinearLayout
-                android:id="@+id/cardTextButtons"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:background="@drawable/bg_card"
-                android:elevation="3dp"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:id="@+id/tvTextBtnTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/section_text_btn_title"
-                    android:textColor="@color/primary"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="12dp"
-                    android:text="@string/section_text_btn_desc"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="13sp" />
-
-                <!-- TextView Dinámico con Soporte de Autosizing (Auto-ajuste de tamaño) -->
-                <TextView
-                    android:id="@+id/tvDynamicText"
-                    android:layout_width="match_parent"
-                    android:layout_height="90dp"
-                    android:background="@drawable/bg_table_cell"
-                    android:gravity="center"
-                    android:maxLines="3"
-                    android:padding="12dp"
-                    android:text="@string/dynamic_text_default"
-                    android:textColor="@color/text_primary"
-                    android:textStyle="italic"
-                    app:autoSizeMaxTextSize="22sp"
-                    app:autoSizeMinTextSize="11sp"
-                    app:autoSizeStepGranularity="1sp"
-                    app:autoSizeTextType="uniform" />
-
-                <!-- Contador de Interacciones -->
-                <TextView
-                    android:id="@+id/tvCounter"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:layout_marginBottom="12dp"
-                    android:gravity="center"
-                    android:text="Contador de Interacciones: 0"
-                    android:textColor="@color/primary"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <!-- Fila de Botones: Incrementar y Decrementar -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/btnIncrementar"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="6dp"
-                        android:layout_weight="1"
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnRequestPermissions"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="12dp"
                         android:backgroundTint="@color/primary"
-                        android:text="@string/btn_incrementar"
-                        android:textColor="@color/text_on_primary" />
+                        android:text="@string/btn_request_permission"
+                        android:textColor="@color/text_on_primary"
+                        app:cornerRadius="10dp"
+                        app:icon="@drawable/ic_permission_shield"
+                        app:iconGravity="textStart"
+                        app:iconTint="@color/text_on_primary" />
 
-                    <Button
-                        android:id="@+id/btnDecrementar"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="6dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="#C62828"
-                        android:text="@string/btn_decrementar"
-                        android:textColor="@color/text_on_primary" />
                 </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-                <!-- Fila de Botones: Cambiar Mensaje y Probar Autosizing -->
+            <!-- ============================================================ -->
+            <!-- CARD 1: PILAR 1 Y 4 - IMÁGENES Y ANIMACIONES XML            -->
+            <!-- ============================================================ -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/surface_card"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/surface_card_stroke"
+                app:strokeWidth="1dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:orientation="horizontal">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                    <Button
-                        android:id="@+id/btnCambiarTexto"
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="6dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="@color/state_info"
-                        android:text="@string/btn_cambiar_texto"
-                        android:textColor="@color/text_on_primary" />
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
-                    <Button
-                        android:id="@+id/btnExpandirTexto"
-                        android:layout_width="0dp"
+                        <ImageView
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:src="@drawable/ic_animation_sparkle"
+                            app:tint="@color/primary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/section_media_anim_title"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="6dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="#6A1B9A"
-                        android:text="@string/btn_expandir_texto"
-                        android:textColor="@color/text_on_primary" />
+                        android:layout_marginTop="6dp"
+                        android:lineSpacingExtra="2dp"
+                        android:text="@string/section_media_anim_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <!-- Contenedor Visual de la Imagen (Marco Moderno) -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="220dp"
+                        android:layout_marginTop="12dp"
+                        app:cardBackgroundColor="#F8FAFC"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/surface_card_stroke"
+                        app:strokeWidth="1dp">
+
+                        <ImageView
+                            android:id="@+id/myImageView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="Imagen multimedia interactiva"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/santo_tomas" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Etiqueta informativa del recurso activo -->
+                    <TextView
+                        android:id="@+id/tvImageInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/active_image_default"
+                        android:textColor="@color/text_muted"
+                        android:textSize="12sp"
+                        android:textStyle="italic" />
+
+                    <!-- Selector de Imagen -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnToggleImage"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_weight="1"
+                            android:text="@string/btn_toggle_image"
+                            android:textColor="@color/primary"
+                            app:cornerRadius="8dp"
+                            app:strokeColor="@color/primary" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnResetImage"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_marginStart="6dp"
+                            android:layout_weight="1"
+                            android:text="@string/btn_reset_image"
+                            android:textColor="@color/text_secondary"
+                            app:cornerRadius="8dp"
+                            app:strokeColor="#94A3B8" />
+                    </LinearLayout>
+
+                    <!-- Divisor -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="#E2E8F0" />
+
+                    <!-- Subtítulo de Animaciones -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/label_animations_group"
+                            android:textColor="@color/text_primary"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/tvAnimStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/anim_status_idle"
+                            android:textColor="@color/primary"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Botón fade_in oficial según pauta (id: animateButton) -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/animateButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="8dp"
+                        android:backgroundTint="@color/primary"
+                        android:text="@string/btn_anim_fade_in"
+                        android:textColor="@color/text_on_primary"
+                        app:cornerRadius="10dp"
+                        app:icon="@drawable/ic_animation_sparkle"
+                        app:iconGravity="textStart"
+                        app:iconTint="@color/text_on_primary" />
+
+                    <!-- Botones complementarios de animaciones: Bounce y Rotate/Scale -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnAnimBounce"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_marginEnd="4dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#0D9488"
+                            android:text="@string/btn_anim_bounce"
+                            android:textColor="@color/text_on_primary"
+                            android:textSize="12sp"
+                            app:cornerRadius="8dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnAnimRotateScale"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#00845A"
+                            android:text="@string/btn_anim_rotate_scale"
+                            android:textColor="@color/text_on_primary"
+                            android:textSize="12sp"
+                            app:cornerRadius="8dp" />
+                    </LinearLayout>
+
                 </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            </LinearLayout>
-
-            <!-- ========================================================================= -->
-            <!-- SECCIÓN 4: ACTIVIDAD 1.4 - WIDGETS, CONTAINERS Y DESAFÍOS                -->
-            <!-- ========================================================================= -->
-            <LinearLayout
+            <!-- ============================================================ -->
+            <!-- CARD 2: PILAR 2 - REPRODUCCIÓN DE AUDIO (MediaPlayer)        -->
+            <!-- ============================================================ -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="24dp"
-                android:background="@drawable/bg_card"
-                android:elevation="3dp"
-                android:orientation="vertical"
-                android:padding="20dp">
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/surface_card"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/surface_card_stroke"
+                app:strokeWidth="1dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="4. Actividad 1.4: Widgets y Containers"
-                    android:textColor="@color/primary"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="Acceso directo a las pantallas de la Actividad 1.4 y sus desafíos prácticos:"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="13sp" />
-
-                <!-- Botón 1: Pauta Oficial 1.4 (CalendarView, RatingBar, ProgressBar, TableLayout) -->
-                <Button
-                    android:id="@+id/btnNavAct14Widgets"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/primary"
-                    android:text="1. Widgets y Containers (Pauta Oficial)"
-                    android:textColor="@color/text_on_primary"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="10dp" />
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                <!-- Botón 2: Desafío 1 (Formulario de Registro) -->
-                <Button
-                    android:id="@+id/btnNavAct14Register"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#00897B"
-                    android:text="2. Desafío 1: Formulario Registro"
-                    android:textColor="@color/text_on_primary"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="10dp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
-                <!-- Botón 3: Desafío 2 (RecyclerView + CardView) -->
-                <Button
-                    android:id="@+id/btnNavAct14Courses"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#2E7D32"
-                    android:text="3. Desafío 2: Lista Cursos (RecyclerView)"
-                    android:textColor="@color/text_on_primary"
-                    android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:src="@drawable/ic_audio_track"
+                            app:tint="@color/primary" />
 
-            </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/section_audio_title"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
 
-        
-            <!-- ========================================================= -->
-            <!-- 5. Actividad 2.1: Actividades y Eventos (Intents)          -->
-            <!-- ========================================================= -->
-            <LinearLayout
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:lineSpacingExtra="2dp"
+                        android:text="@string/section_audio_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <!-- Tarjeta Reproductor de Audio Moderno -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:background="@drawable/bg_image_frame"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+
+                        <!-- Cabecera de la pista: Disco + Títulos -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <FrameLayout
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:background="@drawable/bg_audio_disc">
+
+                                <ImageView
+                                    android:layout_width="26dp"
+                                    android:layout_height="26dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_audio_track"
+                                    app:tint="#FFFFFF" />
+                            </FrameLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/audio_track_title"
+                                    android:textColor="@color/text_primary"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="@string/audio_track_format"
+                                    android:textColor="@color/text_muted"
+                                    android:textSize="11sp" />
+                            </LinearLayout>
+
+                            <!-- Badge de Estado de Audio -->
+                            <TextView
+                                android:id="@+id/tvAudioStatus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_badge_rounded"
+                                android:paddingStart="8dp"
+                                android:paddingTop="3dp"
+                                android:paddingEnd="8dp"
+                                android:paddingBottom="3dp"
+                                android:text="@string/audio_status_idle"
+                                android:textColor="@color/state_info"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- Barra de Progreso / SeekBar -->
+                        <SeekBar
+                            android:id="@+id/seekBarAudio"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:max="100"
+                            android:progress="0"
+                            android:progressTint="@color/primary"
+                            android:thumbTint="@color/primary" />
+
+                        <!-- Tiempos Transcurridos y Totales -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tvAudioCurrentTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/audio_time_zero"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="11sp" />
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="1dp"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/tvAudioTotalTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/audio_time_zero"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+
+                        <!-- Botones de Control de Audio -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:orientation="horizontal">
+
+                            <!-- Botón oficial playAudioButton -->
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/playAudioButton"
+                                android:layout_width="0dp"
+                                android:layout_height="44dp"
+                                android:layout_marginEnd="4dp"
+                                android:layout_weight="1"
+                                android:backgroundTint="@color/primary"
+                                android:text="@string/btn_audio_play"
+                                android:textColor="@color/text_on_primary"
+                                app:cornerRadius="8dp"
+                                app:icon="@drawable/ic_play_arrow"
+                                app:iconGravity="textStart"
+                                app:iconTint="@color/text_on_primary" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnPauseAudio"
+                                android:layout_width="0dp"
+                                android:layout_height="44dp"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginEnd="4dp"
+                                android:layout_weight="1"
+                                android:backgroundTint="@color/state_warning"
+                                android:text="@string/btn_audio_pause"
+                                android:textColor="@color/text_on_primary"
+                                app:cornerRadius="8dp"
+                                app:icon="@drawable/ic_pause"
+                                app:iconGravity="textStart"
+                                app:iconTint="@color/text_on_primary" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnStopAudio"
+                                android:layout_width="0dp"
+                                android:layout_height="44dp"
+                                android:layout_marginStart="4dp"
+                                android:layout_weight="1"
+                                android:backgroundTint="@color/state_danger"
+                                android:text="@string/btn_audio_stop"
+                                android:textColor="@color/text_on_primary"
+                                app:cornerRadius="8dp"
+                                app:icon="@drawable/ic_stop"
+                                app:iconGravity="textStart"
+                                app:iconTint="@color/text_on_primary" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Nota Didáctica de Ciclo de Vida -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/audio_lifecycle_note"
+                        android:textColor="@color/state_active"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ============================================================ -->
+            <!-- CARD 3: PILAR 3 - REPRODUCCIÓN DE VIDEO (VideoView)          -->
+            <!-- ============================================================ -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/bg_card"
-                android:elevation="4dp"
-                android:orientation="vertical"
-                android:padding="20dp">
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/surface_card"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/surface_card_stroke"
+                app:strokeWidth="1dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/act21_section_title"
-                    android:textColor="#006847"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="@string/act21_section_desc"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="13sp" />
-
-                <!-- Botón 1: Ir a Inicio (Cámara y Envío de Foto) -->
-                <Button
-                    android:id="@+id/btnNavAct21Inicio"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#6200EE"
-                    android:text="@string/nav_act21_inicio"
-                    android:textColor="@color/text_on_primary"
-                    android:textStyle="bold"
-                    app:icon="@drawable/ic_camera"
-                    android:layout_marginBottom="10dp" />
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                <!-- Botón 2: Probar AResultado con Intent Explícito -->
-                <Button
-                    android:id="@+id/btnNavAct21Resultado"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#006847"
-                    android:text="@string/nav_act21_resultado"
-                    android:textColor="@color/text_on_primary"
-                    android:textStyle="bold"
-                    app:icon="@drawable/ic_check_circle" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
-            </LinearLayout>
+                        <ImageView
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:src="@drawable/ic_video_play"
+                            app:tint="@color/primary" />
 
-            <!-- ========================================================= -->
-            <!-- 6. Actividad 2.2: Threads y Sensores                      -->
-            <!-- ========================================================= -->
-            <LinearLayout
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/section_video_title"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:lineSpacingExtra="2dp"
+                        android:text="@string/section_video_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <!-- Marco Cinema para el VideoView -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="220dp"
+                        android:layout_marginTop="12dp"
+                        app:cardBackgroundColor="#000000"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="2dp">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <!-- VideoView Oficial según pauta (id: myVideoView) -->
+                            <VideoView
+                                android:id="@+id/myVideoView"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center" />
+
+                            <!-- Overlay de Estado/Instrucción -->
+                            <TextView
+                                android:id="@+id/tvVideoOverlay"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="#99000000"
+                                android:paddingStart="14dp"
+                                android:paddingTop="8dp"
+                                android:paddingEnd="14dp"
+                                android:paddingBottom="8dp"
+                                android:text="@string/video_overlay_prompt"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+                        </FrameLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Botones de Control de Video -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal">
+
+                        <!-- Botón oficial playVideoButton según pauta -->
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/playVideoButton"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_marginEnd="4dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="@color/primary"
+                            android:text="@string/btn_video_play"
+                            android:textColor="@color/text_on_primary"
+                            app:cornerRadius="8dp"
+                            app:icon="@drawable/ic_video_play"
+                            app:iconGravity="textStart"
+                            app:iconTint="@color/text_on_primary" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnPauseVideo"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="@color/state_warning"
+                            android:text="@string/btn_video_pause"
+                            android:textColor="@color/text_on_primary"
+                            app:cornerRadius="8dp"
+                            app:icon="@drawable/ic_pause"
+                            app:iconGravity="textStart"
+                            app:iconTint="@color/text_on_primary" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnRestartVideo"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#475569"
+                            android:text="@string/btn_video_restart"
+                            android:textColor="@color/text_on_primary"
+                            app:cornerRadius="8dp" />
+                    </LinearLayout>
+
+                    <!-- Nota URI -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/video_uri_note"
+                        android:textColor="@color/text_muted"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ============================================================ -->
+            <!-- CARD 4: FOOTER INSTITUCIONAL                                -->
+            <!-- ============================================================ -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="30dp"
-                android:background="@drawable/bg_card"
-                android:elevation="4dp"
-                android:orientation="vertical"
-                android:padding="20dp">
+                app:cardBackgroundColor="#F8FAFC"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/surface_card_stroke"
+                app:strokeWidth="1dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/act22_section_title"
-                    android:textColor="#006847"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="@string/act22_section_desc"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="13sp" />
-
-                <!-- Botón: Ir a Threads y Sensores -->
-                <Button
-                    android:id="@+id/btnNavAct22ThreadsSensors"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#006847"
-                    android:text="@string/nav_act22_threads_sensors"
-                    android:textColor="@color/text_on_primary"
-                    android:textStyle="bold"
-                    app:icon="@drawable/ic_sensor" />
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/footer_institution"
+                        android:textColor="@color/primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
 
-            <!-- ========================================================= -->
-            <!-- 7. Actividad 2.4: Elementos Multimedia                   -->
-            <!-- ========================================================= -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="30dp"
-                android:background="@drawable/bg_card"
-                android:elevation="4dp"
-                android:orientation="vertical"
-                android:padding="20dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/footer_course"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/act24_section_title"
-                    android:textColor="#006847"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/footer_developed_by"
+                        android:textColor="@color/text_muted"
+                        android:textSize="10sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="@string/act24_section_desc"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="13sp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
-                <!-- Botón: Ir a Multimedia -->
-                <Button
-                    android:id="@+id/btnNavAct24Multimedia"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#006847"
-                    android:text="@string/nav_act24_multimedia"
-                    android:textColor="@color/text_on_primary"
-                    android:textStyle="bold"
-                    app:icon="@drawable/ic_video_play" />
-
-            </LinearLayout>
-
-</LinearLayout>
-    </ScrollView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
