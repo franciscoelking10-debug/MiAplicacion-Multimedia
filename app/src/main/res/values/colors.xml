@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Colores Primarios Institucionales / Modernos -->
+    <color name="primary">#006847</color>
+    <color name="primary_dark">#004d34</color>
+    <color name="primary_light">#E8F5E9</color>
+    <color name="accent">#00A86B</color>
+    
+    <!-- Colores de Fondo y Superficie -->
+    <color name="background">#F4F6F9</color>
+    <color name="surface_card">#FFFFFF</color>
+    <color name="surface_card_stroke">#E2E8F0</color>
+    
+    <!-- Colores de Texto -->
+    <color name="text_primary">#1A202C</color>
+    <color name="text_secondary">#4A5568</color>
+    <color name="text_muted">#718096</color>
+    <color name="text_on_primary">#FFFFFF</color>
+    
+    <!-- Estados y Acentos -->
+    <color name="state_active">#10B981</color>
+    <color name="state_warning">#F59E0B</color>
+    <color name="state_info">#3B82F6</color>
+    <color name="state_danger">#EF4444</color>
+    
+    <!-- Tablas y Elementos UI -->
+    <color name="table_header_bg">#006847</color>
+    <color name="table_header_text">#FFFFFF</color>
+    <color name="table_row_alt">#F8FAFC</color>
+    <color name="table_border">#CBD5E1</color>
+</resources>

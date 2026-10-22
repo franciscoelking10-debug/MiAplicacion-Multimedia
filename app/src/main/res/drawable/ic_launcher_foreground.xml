@@ -1,0 +1,13 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Icono de Smartphone con Layouts -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M35,20h38c3.31,0 6,2.69 6,6v56c0,3.31 -2.69,6 -6,6H35c-3.31,0 -6,-2.69 -6,-6V26c0,-3.31 2.69,-6 6,-6zM35,26v56h38V26H35z" />
+    <path
+        android:fillColor="#00A86B"
+        android:pathData="M40,32h28v10h-28zM40,46h12v10h-12zM56,46h12v10h-12zM40,60h28v10h-28z" />
+</vector>

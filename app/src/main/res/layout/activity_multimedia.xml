@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".MultimediaActivity">
+
+    <!-- App Bar Superior -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarMultimedia"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/primary"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btnBackToMain"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Volver al menú principal"
+                    android:src="@drawable/ic_arrow_back"
+                    app:tint="@color/text_on_primary" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Actividad 2.4: Multimedia"
+                        android:textColor="@color/text_on_primary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Imágenes, Audio, Video, Animación y Permisos (API 30)"
+                        android:textColor="#E0F2F1"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/bg_badge_thread"
+                    android:paddingStart="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="4dp"
+                    android:text="IEI-093"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Contenido Scrollable Principal -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Banner Informativo -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="#E8F5E9"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#A5D6A7"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Orquestación Multimedia en Android"
+                        android:textColor="#005C42"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Demostración de los 4 pilares de integración (res/drawable, res/raw, res/anim y permisos en tiempo de ejecución) bajo Android 11 (API 30) y arquitectura Java."
+                        android:textColor="#2E7D32"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ============================================================ -->
+            <!-- 1. GESTIÓN DE PERMISOS EN TIEMPO DE EJECUCIÓN (API 30)      -->
+            <!-- ============================================================ -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:strokeColor="#CBD5E1"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_permission_shield"
+                            app:tint="#006847" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="1. Permisos en Tiempo de Ejecución"
+                            android:textColor="#1E293B"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Solicitud dinámica con ActivityCompat.requestPermissions y captura en onRequestPermissionsResult (READ_EXTERNAL_STORAGE e INTERNET)."
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <!-- Estado del Permiso -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="#F1F5F9"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Estado actual:"
+                            android:textColor="#475569"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvPermissionStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="Pendiente de verificación"
+                            android:textColor="#D97706"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnRequestPermissions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:backgroundTint="#006847"
+                        android:text="Verificar / Solicitar Permisos"
+                        android:textColor="#FFFFFF"
+                        app:icon="@drawable/ic_permission_shield" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ============================================================ -->
+            <!-- 2. INCORPORACIÓN DE IMÁGENES Y ANIMACIONES (Pilar 1 y 4)    -->
+            <!-- ============================================================ -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:strokeColor="#CBD5E1"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_animation_sparkle"
+                            app:tint="#006847" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="2. Imágenes y Animaciones XML"
+                            android:textColor="#1E293B"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Visualización con ImageView (res/drawable) y animación interactiva mediante AnimationUtils.loadAnimation (res/anim)."
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <!-- Contenedor Visual de la Imagen (Marco con bordes redondeados) -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="210dp"
+                        android:layout_marginTop="12dp"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="1dp"
+                        app:strokeColor="#E2E8F0"
+                        app:strokeWidth="1dp">
+
+                        <ImageView
+                            android:id="@+id/myImageView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="Imagen multimedia interactiva"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/multimedia_hero" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Etiqueta informativa de la imagen activa -->
+                    <TextView
+                        android:id="@+id/tvImageInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="8dp"
+                        android:text="Recurso activo: @drawable/multimedia_hero"
+                        android:textColor="#64748B"
+                        android:textSize="12sp"
+                        android:textStyle="italic" />
+
+                    <!-- Botones de Cambio de Imagen -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btnToggleImage"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="6dp"
+                            android:layout_weight="1"
+                            android:text="Alternar Imagen"
+                            android:textColor="#006847"
+                            app:strokeColor="#006847" />
+
+                        <Button
+                            android:id="@+id/btnResetImage"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:layout_weight="1"
+                            android:text="Restaurar Hero"
+                            android:textColor="#475569"
+                            app:strokeColor="#94A3B8" />
+                    </LinearLayout>
+
+                    <!-- Panel de Disparo de Animaciones -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="Ejecución de Animaciones XML:"
+                        android:textColor="#334155"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <!-- Botón fade_in oficial según pauta (animateButton) -->
+                    <Button
+                        android:id="@+id/animateButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:backgroundTint="#006847"
+                        android:text="Animación Fade In (res/anim/fade_in.xml)"
+                        android:textColor="#FFFFFF"
+                        app:icon="@drawable/ic_animation_sparkle" />
+
+                    <!-- Botones adicionales: Bounce y Rotate/Scale -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btnAnimBounce"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="6dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#00897B"
+                            android:text="Bounce (Rebote)"
+                            android:textColor="#FFFFFF" />
+
+                        <Button
+                            android:id="@+id/btnAnimRotateScale"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#2E7D32"
+                            android:text="Rotate &amp; Scale"
+                            android:textColor="#FFFFFF" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ============================================================ -->
+            <!-- 3. REPRODUCCIÓN DE AUDIO (Pilar 2 - MediaPlayer)            -->
+            <!-- ============================================================ -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:strokeColor="#CBD5E1"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_audio_track"
+                            app:tint="#006847" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="3. Reproducción de Audio (MediaPlayer)"
+                            android:textColor="#1E293B"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Control mediante android.media.MediaPlayer con archivo importado en res/raw/tu_audio.mp3 y liberación estricta en onDestroy()."
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <!-- Estado del Reproductor de Audio -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="#F8FAFC"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Estado Audio:"
+                            android:textColor="#475569"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvAudioStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="Listo para reproducir (Detenido)"
+                            android:textColor="#2563EB"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Botones de Control de Audio -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal">
+
+                        <!-- Botón playAudioButton oficial según pauta -->
+                        <Button
+                            android:id="@+id/playAudioButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="4dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#006847"
+                            android:text="Play"
+                            android:textColor="#FFFFFF"
+                            app:icon="@drawable/ic_play_arrow" />
+
+                        <Button
+                            android:id="@+id/btnPauseAudio"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#D97706"
+                            android:text="Pausa"
+                            android:textColor="#FFFFFF"
+                            app:icon="@drawable/ic_pause" />
+
+                        <Button
+                            android:id="@+id/btnStopAudio"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#DC2626"
+                            android:text="Stop"
+                            android:textColor="#FFFFFF"
+                            app:icon="@drawable/ic_stop" />
+                    </LinearLayout>
+
+                    <!-- Advertencia didáctica sobre onDestroy -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="✓ Ciclo de Vida: mediaPlayer.release() configurado en onDestroy() para prevenir fugas de memoria nativa."
+                        android:textColor="#16A34A"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ============================================================ -->
+            <!-- 4. REPRODUCCIÓN DE VIDEO (Pilar 3 - VideoView)               -->
+            <!-- ============================================================ -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:strokeColor="#CBD5E1"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_video_play"
+                            app:tint="#006847" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="4. Reproducción de Video (VideoView)"
+                            android:textColor="#1E293B"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Reproducción con VideoView y MediaController integrado. Parseo del recurso local mediante URI android.resource://{packagename}/{id}."
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <!-- Contenedor del VideoView con marco elegante -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="220dp"
+                        android:layout_marginTop="12dp"
+                        app:cardBackgroundColor="#000000"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="2dp">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <VideoView
+                                android:id="@+id/myVideoView"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center" />
+
+                            <!-- Overlay de estado cuando no ha iniciado -->
+                            <TextView
+                                android:id="@+id/tvVideoOverlay"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="#80000000"
+                                android:padding="8dp"
+                                android:text="Presiona 'Reproducir Video' para iniciar"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp" />
+                        </FrameLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Botones de Control de Video -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal">
+
+                        <!-- Botón playVideoButton oficial según pauta -->
+                        <Button
+                            android:id="@+id/playVideoButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="4dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#006847"
+                            android:text="Play Video"
+                            android:textColor="#FFFFFF"
+                            app:icon="@drawable/ic_video_play" />
+
+                        <Button
+                            android:id="@+id/btnPauseVideo"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#D97706"
+                            android:text="Pausar"
+                            android:textColor="#FFFFFF"
+                            app:icon="@drawable/ic_pause" />
+
+                        <Button
+                            android:id="@+id/btnRestartVideo"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#475569"
+                            android:text="Reiniciar"
+                            android:textColor="#FFFFFF" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

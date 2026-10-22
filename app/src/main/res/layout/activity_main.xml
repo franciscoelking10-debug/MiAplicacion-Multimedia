@@ -1,0 +1,776 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+    IEI-093 | Programación Android - Actividad 1.3
+    Demostración integral de:
+    1. ConstraintLayout (Contenedor raíz y encabezado responsivo)
+    2. LinearLayout (Alineaciones verticales y horizontales para formularios y botones)
+    3. TableLayout (Estructuración matricial con TableRow)
+    4. TextViews (Títulos, etiquetas, autosizing TextView)
+    5. Buttons (Botones interactivos con eventos en Java)
+-->
+<androidx.constraintlayout.widget.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".MainActivity">
+
+    <!-- ========================================================================= -->
+    <!-- ENCABEZADO SUPERIOR: Diseñado con ConstraintLayout                      -->
+    <!-- ========================================================================= -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_header_gradient"
+        android:paddingStart="20dp"
+        android:paddingTop="28dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Badge de la actividad -->
+        <TextView
+            android:id="@+id/tvBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card"
+            android:backgroundTint="#2E7D32"
+            android:paddingStart="10dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="4dp"
+            android:text="@string/app_badge"
+            android:textColor="@color/text_on_primary"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Título principal -->
+        <TextView
+            android:id="@+id/tvAppTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/app_name"
+            android:textColor="@color/text_on_primary"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/btnResetGlobal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvBadge" />
+
+        <!-- Subtítulo institucional -->
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/app_subtitle"
+            android:textColor="#C8E6C9"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/btnResetGlobal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAppTitle" />
+
+        <!-- Botón de reinicio global posicionado con restricciones en el encabezado -->
+        <Button
+            android:id="@+id/btnResetGlobal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#EF5350"
+            android:text="@string/btn_reset_all"
+            android:textColor="@color/text_on_primary"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvSubtitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvAppTitle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ========================================================================= -->
+    <!-- CONTENIDO CON SCROLLVIEW PARA VISUALIZAR TODOS LOS LAYOUTS                -->
+    <!-- ========================================================================= -->
+    <ScrollView
+        android:id="@+id/scrollViewContent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headerLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ================================================================= -->
+            <!-- SECCIÓN 1: DEMOSTRACIÓN DE LINEARLAYOUT                          -->
+            <!-- ================================================================= -->
+            <LinearLayout
+                android:id="@+id/cardLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_card"
+                android:elevation="3dp"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvLinearTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/section_linear_title"
+                    android:textColor="@color/primary"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/section_linear_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+
+                <!-- Formulario vertical -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_nombre"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="10dp"
+                    android:autofillHints="name"
+                    android:background="@drawable/bg_table_cell"
+                    android:hint="@string/hint_nombre"
+                    android:inputType="textPersonName"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_carrera"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etCarrera"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="14dp"
+                    android:autofillHints="jobTitle"
+                    android:background="@drawable/bg_table_cell"
+                    android:hint="@string/hint_carrera"
+                    android:inputType="text"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp" />
+
+                <!-- LinearLayout Horizontal para los botones de acción -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnSaludar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/primary"
+                        android:text="@string/btn_saludar"
+                        android:textColor="@color/text_on_primary" />
+
+                    <Button
+                        android:id="@+id/btnLimpiar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/text_secondary"
+                        android:text="@string/btn_limpiar"
+                        android:textColor="@color/text_on_primary" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- ================================================================= -->
+            <!-- SECCIÓN 2: DEMOSTRACIÓN DE TABLELAYOUT                           -->
+            <!-- ================================================================= -->
+            <LinearLayout
+                android:id="@+id/cardTableLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_card"
+                android:elevation="3dp"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvTableTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/section_table_title"
+                    android:textColor="@color/primary"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/section_table_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+
+                <!-- Contenedor TableLayout con columna 1 auto-expandible -->
+                <TableLayout
+                    android:id="@+id/tableAsignaturas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="1">
+
+                    <!-- Fila 0: Encabezados -->
+                    <TableRow
+                        android:background="@drawable/bg_table_header"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="4dp"
+                            android:text="@string/th_codigo"
+                            android:textColor="@color/table_header_text"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="4dp"
+                            android:text="@string/th_asignatura"
+                            android:textColor="@color/table_header_text"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="4dp"
+                            android:text="@string/th_semestre"
+                            android:textColor="@color/table_header_text"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="4dp"
+                            android:text="@string/th_estado"
+                            android:textColor="@color/table_header_text"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <!-- Fila 1: Asignatura 1 -->
+                    <TableRow
+                        android:background="@color/table_row_alt"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="4dp"
+                            android:text="@string/row1_cod"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="4dp"
+                            android:text="@string/row1_asig"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="4dp"
+                            android:text="@string/row1_sem"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="4dp"
+                            android:text="@string/row1_est"
+                            android:textColor="@color/state_active"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <!-- Fila 2: Asignatura 2 -->
+                    <TableRow
+                        android:background="@color/surface_card"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="4dp"
+                            android:text="@string/row2_cod"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="4dp"
+                            android:text="@string/row2_asig"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="4dp"
+                            android:text="@string/row2_sem"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="4dp"
+                            android:text="@string/row2_est"
+                            android:textColor="@color/state_active"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <!-- Fila 3: Asignatura 3 -->
+                    <TableRow
+                        android:background="@color/table_row_alt"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="4dp"
+                            android:text="@string/row3_cod"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="4dp"
+                            android:text="@string/row3_asig"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="4dp"
+                            android:text="@string/row3_sem"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="4dp"
+                            android:text="@string/row3_est"
+                            android:textColor="@color/state_warning"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                </TableLayout>
+
+                <!-- Botón para interactuar con la tabla -->
+                <Button
+                    android:id="@+id/btnToggleTable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:backgroundTint="@color/accent"
+                    android:text="@string/btn_toggle_table"
+                    android:textColor="@color/text_on_primary" />
+
+            </LinearLayout>
+
+            <!-- ================================================================= -->
+            <!-- SECCIÓN 3: TEXTVIEWS Y BOTONES CON INTERACCIÓN DINÁMICA           -->
+            <!-- ================================================================= -->
+            <LinearLayout
+                android:id="@+id/cardTextButtons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/bg_card"
+                android:elevation="3dp"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvTextBtnTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/section_text_btn_title"
+                    android:textColor="@color/primary"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/section_text_btn_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+
+                <!-- TextView Dinámico con Soporte de Autosizing (Auto-ajuste de tamaño) -->
+                <TextView
+                    android:id="@+id/tvDynamicText"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:background="@drawable/bg_table_cell"
+                    android:gravity="center"
+                    android:maxLines="3"
+                    android:padding="12dp"
+                    android:text="@string/dynamic_text_default"
+                    android:textColor="@color/text_primary"
+                    android:textStyle="italic"
+                    app:autoSizeMaxTextSize="22sp"
+                    app:autoSizeMinTextSize="11sp"
+                    app:autoSizeStepGranularity="1sp"
+                    app:autoSizeTextType="uniform" />
+
+                <!-- Contador de Interacciones -->
+                <TextView
+                    android:id="@+id/tvCounter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center"
+                    android:text="Contador de Interacciones: 0"
+                    android:textColor="@color/primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Fila de Botones: Incrementar y Decrementar -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnIncrementar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/primary"
+                        android:text="@string/btn_incrementar"
+                        android:textColor="@color/text_on_primary" />
+
+                    <Button
+                        android:id="@+id/btnDecrementar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#C62828"
+                        android:text="@string/btn_decrementar"
+                        android:textColor="@color/text_on_primary" />
+                </LinearLayout>
+
+                <!-- Fila de Botones: Cambiar Mensaje y Probar Autosizing -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnCambiarTexto"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/state_info"
+                        android:text="@string/btn_cambiar_texto"
+                        android:textColor="@color/text_on_primary" />
+
+                    <Button
+                        android:id="@+id/btnExpandirTexto"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#6A1B9A"
+                        android:text="@string/btn_expandir_texto"
+                        android:textColor="@color/text_on_primary" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- ========================================================================= -->
+            <!-- SECCIÓN 4: ACTIVIDAD 1.4 - WIDGETS, CONTAINERS Y DESAFÍOS                -->
+            <!-- ========================================================================= -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/bg_card"
+                android:elevation="3dp"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4. Actividad 1.4: Widgets y Containers"
+                    android:textColor="@color/primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Acceso directo a las pantallas de la Actividad 1.4 y sus desafíos prácticos:"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+
+                <!-- Botón 1: Pauta Oficial 1.4 (CalendarView, RatingBar, ProgressBar, TableLayout) -->
+                <Button
+                    android:id="@+id/btnNavAct14Widgets"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/primary"
+                    android:text="1. Widgets y Containers (Pauta Oficial)"
+                    android:textColor="@color/text_on_primary"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp" />
+
+                <!-- Botón 2: Desafío 1 (Formulario de Registro) -->
+                <Button
+                    android:id="@+id/btnNavAct14Register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#00897B"
+                    android:text="2. Desafío 1: Formulario Registro"
+                    android:textColor="@color/text_on_primary"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp" />
+
+                <!-- Botón 3: Desafío 2 (RecyclerView + CardView) -->
+                <Button
+                    android:id="@+id/btnNavAct14Courses"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#2E7D32"
+                    android:text="3. Desafío 2: Lista Cursos (RecyclerView)"
+                    android:textColor="@color/text_on_primary"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        
+            <!-- ========================================================= -->
+            <!-- 5. Actividad 2.1: Actividades y Eventos (Intents)          -->
+            <!-- ========================================================= -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_card"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/act21_section_title"
+                    android:textColor="#006847"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/act21_section_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+
+                <!-- Botón 1: Ir a Inicio (Cámara y Envío de Foto) -->
+                <Button
+                    android:id="@+id/btnNavAct21Inicio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#6200EE"
+                    android:text="@string/nav_act21_inicio"
+                    android:textColor="@color/text_on_primary"
+                    android:textStyle="bold"
+                    app:icon="@drawable/ic_camera"
+                    android:layout_marginBottom="10dp" />
+
+                <!-- Botón 2: Probar AResultado con Intent Explícito -->
+                <Button
+                    android:id="@+id/btnNavAct21Resultado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#006847"
+                    android:text="@string/nav_act21_resultado"
+                    android:textColor="@color/text_on_primary"
+                    android:textStyle="bold"
+                    app:icon="@drawable/ic_check_circle" />
+
+            </LinearLayout>
+
+            <!-- ========================================================= -->
+            <!-- 6. Actividad 2.2: Threads y Sensores                      -->
+            <!-- ========================================================= -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/bg_card"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/act22_section_title"
+                    android:textColor="#006847"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/act22_section_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+
+                <!-- Botón: Ir a Threads y Sensores -->
+                <Button
+                    android:id="@+id/btnNavAct22ThreadsSensors"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#006847"
+                    android:text="@string/nav_act22_threads_sensors"
+                    android:textColor="@color/text_on_primary"
+                    android:textStyle="bold"
+                    app:icon="@drawable/ic_sensor" />
+
+            </LinearLayout>
+
+            <!-- ========================================================= -->
+            <!-- 7. Actividad 2.4: Elementos Multimedia                   -->
+            <!-- ========================================================= -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/bg_card"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/act24_section_title"
+                    android:textColor="#006847"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/act24_section_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+
+                <!-- Botón: Ir a Multimedia -->
+                <Button
+                    android:id="@+id/btnNavAct24Multimedia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#006847"
+                    android:text="@string/nav_act24_multimedia"
+                    android:textColor="@color/text_on_primary"
+                    android:textStyle="bold"
+                    app:icon="@drawable/ic_video_play" />
+
+            </LinearLayout>
+
+</LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

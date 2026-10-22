@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MiAplicacion</string>
+    <string name="app_subtitle">IEI-093 | Programación Android</string>
+    <string name="app_badge">Actividad 1.3</string>
+    <string name="header_desc">Demostración práctica de ConstraintLayout, LinearLayout, TableLayout, TextViews y Buttons.</string>
+    <string name="btn_reset_all">Reiniciar Todo</string>
+
+    <!-- Sección 1: LinearLayout -->
+    <string name="section_linear_title">1. Linear Layout (Alineación Lineal)</string>
+    <string name="section_linear_desc">Organiza vistas de forma secuencial en orientación Vertical y Horizontal.</string>
+    <string name="label_nombre">Nombre del Alumno / Usuario:</string>
+    <string name="hint_nombre">Ingresa tu nombre...</string>
+    <string name="label_carrera">Carrera / Área:</string>
+    <string name="hint_carrera">Ej: Ing. en Informática</string>
+    <string name="btn_saludar">Saludar</string>
+    <string name="btn_limpiar">Limpiar</string>
+
+    <!-- Sección 2: TableLayout -->
+    <string name="section_table_title">2. Table Layout (Estructura Tabular)</string>
+    <string name="section_table_desc">Distribución matricial en filas (TableRow) y columnas para mostrar información estructurada.</string>
+    <string name="th_codigo">Cód.</string>
+    <string name="th_asignatura">Asignatura</string>
+    <string name="th_semestre">Sem.</string>
+    <string name="th_estado">Estado</string>
+
+    <!-- Filas de la tabla -->
+    <string name="row1_cod">IEI-091</string>
+    <string name="row1_asig">Prog. Básica</string>
+    <string name="row1_sem">Sem 1</string>
+    <string name="row1_est">Aprobada</string>
+
+    <string name="row2_cod">IEI-092</string>
+    <string name="row2_asig">Prog. Avanzada</string>
+    <string name="row2_sem">Sem 2</string>
+    <string name="row2_est">Aprobada</string>
+
+    <string name="row3_cod">IEI-093</string>
+    <string name="row3_asig">Prog. Android</string>
+    <string name="row3_sem">Sem 3</string>
+    <string name="row3_est">En Curso</string>
+
+    <string name="btn_toggle_table">Alternar Resumen Tabla</string>
+
+    <!-- Sección 3: TextViews y Buttons con Lógica Interactiva -->
+    <string name="section_text_btn_title">3. TextViews y Buttons Interactivos</string>
+    <string name="section_text_btn_desc">Ejemplo de Autosizing TextView y manejo de eventos OnClickListener en Java.</string>
+    <string name="dynamic_text_default">¡Bienvenido a MiAplicacion! Haz clic en los botones para interactuar.</string>
+    <string name="label_counter_prefix">Contador de Interacciones: </string>
+    <string name="btn_incrementar">+ Incrementar</string>
+    <string name="btn_decrementar">- Decrementar</string>
+    <string name="btn_cambiar_texto">Cambiar Mensaje</string>
+    <string name="btn_expandir_texto">Texto Largo (Auto-Ajuste)</string>
+
+    <!-- Mensajes Toast -->
+    <string name="toast_welcome">¡Hola, %1$s de %2$s! Bienvenido a la aplicación.</string>
+    <string name="toast_empty_name">Por favor ingresa un nombre en el formulario.</string>
+    <string name="toast_fields_cleared">Formulario limpiado.</string>
+    <string name="toast_reset">Todos los campos y estados han sido reiniciados.</string>
+    <string name="toast_table_info">Total de asignaturas mostradas: 3 (2 aprobadas, 1 en curso).</string>
+    <string name="toast_count_updated">Contador actualizado a: %1$d</string>
+
+    <!-- Actividad 1.4: Widgets y Containers -->
+    <string name="act14_title">Actividad 1.4: Widgets y Contenedores</string>
+    <string name="act14_subtitle">Integración de Widgets y Contenedores en Android</string>
+    <string name="nav_act14_widgets">1. Widgets y Containers (Pauta 1.4)</string>
+    <string name="nav_act14_register">2. Desafío 1: Formulario Registro</string>
+    <string name="nav_act14_courses">3. Desafío 2: Lista Cursos (RecyclerView)</string>
+    <string name="rating_desc">Calificación del producto</string>
+
+    <!-- CalendarView -->
+    <string name="section_calendar_title">Widget: CalendarView</string>
+    <string name="section_calendar_desc">Selecciona una fecha en el calendario interactivo:</string>
+    <string name="calendar_selected_date">Fecha seleccionada: %1$s</string>
+
+    <!-- Progress & Rating -->
+    <string name="section_progress_title">Widget: ProgressBar y RatingBar</string>
+    <string name="btn_increase_progress">+15% Progreso</string>
+    <string name="btn_reset_progress">Reiniciar</string>
+    <string name="progress_label">Progreso actual: %1$d%%</string>
+    <string name="rating_label">Puntuación: %1$.1f / 5.0</string>
+
+    <!-- SeekBars -->
+    <string name="section_seekbar_title">Widgets: Barras de Segmento (SeekBar)</string>
+    <string name="seekbar_continuous_label">Barra de segmento continua: %1$d%%</string>
+    <string name="seekbar_discrete_label">Barra de segmento discreta (Paso 1 a 5): Nivel %1$d</string>
+
+    <!-- Containers: TableLayout -->
+    <string name="section_container_table_title">Contenedor: TableLayout con TableRow</string>
+    <string name="table_header_title">Tabla de Registros de Estudiantes</string>
+    <string name="th_id">ID</string>
+    <string name="th_nombre">Nombre</string>
+    <string name="th_apellido">Apellido</string>
+    <string name="th_imagen">Foto</string>
+
+    <!-- Desafío 1: Formulario Registro -->
+    <string name="reg_title">Formulario de Registro</string>
+    <string name="reg_subtitle">Por favor ingrese sus datos obligatorios</string>
+    <string name="hint_rut">RUT (ej: 12.345.678-9)</string>
+    <string name="hint_nombre_reg">Nombre</string>
+    <string name="hint_ap_paterno">Apellido Paterno</string>
+    <string name="hint_ap_materno">Apellido Materno</string>
+    <string name="hint_edad">Edad</string>
+    <string name="hint_telefono">Teléfono (ej: +56912345678)</string>
+    <string name="hint_direccion">Dirección</string>
+    <string name="hint_correo">Correo Electrónico</string>
+    <string name="label_genero">Género:</string>
+    <string name="gender_masc">Masculino</string>
+    <string name="gender_fem">Femenino</string>
+    <string name="gender_otro">Otro</string>
+    <string name="btn_validar">VALIDAR</string>
+    <string name="validating_data">Validando información...</string>
+    <string name="error_required_fields">Por favor complete todos los campos obligatorios.</string>
+    <string name="error_invalid_email">Ingrese un formato de correo válido.</string>
+
+    <!-- Desafío 1: Bienvenida -->
+    <string name="welcome_title">¡Registro Exitoso!</string>
+    <string name="welcome_greeting">Bienvenido(a), %1$s %2$s</string>
+    <string name="welcome_rut">RUT: %1$s</string>
+    <string name="welcome_email">Correo: %1$s</string>
+    <string name="welcome_phone">Teléfono: %1$s</string>
+    <string name="welcome_address">Dirección: %1$s</string>
+    <string name="welcome_age">Edad: %1$s años</string>
+    <string name="welcome_gender">Género: %1$s</string>
+    <string name="btn_back_home">Volver al Inicio</string>
+
+    <!-- Desafío 2: RecyclerView Cursos -->
+    <string name="courses_title">Lista Dinámica de Cursos</string>
+    <string name="courses_subtitle">Implementación de RecyclerView + CardView</string>
+    <string name="course_rating_prefix">Calificación: </string>
+
+    <!-- Actividad 2.1: Programación de Actividades y Eventos (IEI-093) -->
+    <string name="act21_section_title">5. Actividad 2.1: Actividades y Eventos (Intents)</string>
+    <string name="act21_section_desc">Dominio de Intents Explícitos e Implícitos, Ciclo de Vida y traspaso de información entre Activities.</string>
+    <string name="nav_act21_inicio">1. Ir a Inicio (Cámara y Envío de Foto)</string>
+    <string name="nav_act21_resultado">2. Probar AResultado con Intent Explícito</string>
+
+    <!-- Pantalla Inicio (Actividad 2.1) -->
+    <string name="title_camara">CAMARA</string>
+    <string name="btn_hacer_foto">HACER FOTO</string>
+    <string name="label_nombre_foto">Nombre Foto:</string>
+    <string name="hint_nombre_foto">Nombre</string>
+    <string name="btn_aceptar">ACEPTAR</string>
+    <string name="btn_compartir_app">Compartir Mensaje (Intent Implícito)</string>
+    <string name="btn_ver_docs">Guía de Activities (Intent Implícito)</string>
+    <string name="btn_volver_menu_ppal">Volver al Menú Principal</string>
+    <string name="desc_act21_inicio">Pantalla Emisora (Inicio): Captura el nombre de la foto y lo envía a AResultado mediante un Intent Explícito.</string>
+
+    <!-- Pantalla AResultado (Actividad 2.1) -->
+    <string name="title_aresultado">RESULTADO DE FOTO</string>
+    <string name="subtitle_aresultado">Pantalla Receptora (AResultado)</string>
+    <string name="label_foto_recibida">Nombre de foto recibido:</string>
+    <string name="btn_compartir_resultado">Compartir en Redes / Mensajería</string>
+    <string name="btn_buscar_web">Buscar en Google</string>
+    <string name="btn_volver_inicio">Tomar otra Foto (Volver)</string>
+
+    <!-- Actividad 2.2: Threads y Sensores (IEI-093) -->
+    <string name="act22_section_title">6. Actividad 2.2: Threads y Sensores</string>
+    <string name="act22_section_desc">Manejo de concurrencia, subprocesos (Thread/Runnable), AsyncTask y captura de datos con SensorManager.</string>
+    <string name="nav_act22_threads_sensors">Actividad 2.2: Threads y Sensores (Pauta Oficial)</string>
+
+    <string name="act22_title">THREADS Y SENSORES</string>
+    <string name="act22_subtitle">IEI-093 | Actividad 2.2 Oficial Santo Toms</string>
+    
+    <!-- Modulo 1: Descarga con Thread -->
+    <string name="act22_mod1_title">1. Descarga con Thread (Subproceso)</string>
+    <string name="act22_mod1_desc">Demuestra el Cdigo de Ejemplo 1 de la pauta: Thread + Runnable sincronizado con mImageView.post() evitando ANR.</string>
+    <string name="btn_download_thread">DESCARGAR IMAGEN (THREAD)</string>
+    <string name="btn_simulate_ui_block">ADVERTENCIA RIESGO ANR</string>
+    <string name="thread_status_idle">Estado: En espera de accin</string>
+
+    <!-- Modulo 2: AsyncTask -->
+    <string name="act22_mod2_title">2. Operaciones Asincrnicas (AsyncTask)</string>
+    <string name="act22_mod2_desc">Ciclo de vida asincrnico de 4 etapas: onPreExecute, doInBackground, onProgressUpdate y onPostExecute.</string>
+    <string name="btn_start_asynctask">INICIAR ASYNCTASK</string>
+    <string name="btn_cancel_asynctask">CANCELAR</string>
+    <string name="asynctask_status_idle">Progreso: 0% | Esperando inicio</string>
+
+    <!-- Modulo 3: Sensores de Hardware -->
+    <string name="act22_mod3_title">3. Sensores de Hardware (SensorManager)</string>
+    <string name="act22_mod3_desc">Lectura en tiempo real del Vector de Rotacin (TYPE_ROTATION_VECTOR) y Acelermetro con Shake Detection.</string>
+    <string name="sensor_rotation_label">Vector de Rotacin (Orientacin 3D):</string>
+    <string name="sensor_accel_label">Acelermetro (Fuerza G / Sacudida):</string>
+
+    <!-- Modulo 4: Background Service -->
+    <string name="act22_mod4_title">4. Background Service (Started Service)</string>
+    <string name="act22_mod4_desc">Componente sin interfaz para procesamiento continuo autnomo (Infografa de Concurrencia).</string>
+    <string name="btn_start_service">INICIAR SERVICIO</string>
+    <string name="btn_stop_service">DETENER SERVICIO</string>
+
+    <!-- Actividad 2.4: Elementos Multimedia (IEI-093) -->
+    <string name="act24_section_title">7. Actividad 2.4: Elementos Multimedia</string>
+    <string name="act24_section_desc">Integración de imágenes (ImageView), audio (MediaPlayer), video (VideoView), animaciones XML (res/anim) y permisos en tiempo de ejecución (API 30).</string>
+    <string name="nav_act24_multimedia">Actividad 2.4: Elementos Multimedia</string>
+
+</resources>

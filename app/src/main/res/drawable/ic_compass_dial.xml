@@ -1,0 +1,21 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    <!-- Círculo exterior -->
+    <path
+        android:fillColor="#F8FAFC"
+        android:strokeColor="#CBD5E1"
+        android:strokeWidth="3"
+        android:pathData="M60,4 A56,56 0 1,1 59.9,4 Z"/>
+    <!-- Círculo interior -->
+    <path
+        android:strokeColor="#E2E8F0"
+        android:strokeWidth="1.5"
+        android:pathData="M60,20 A40,40 0 1,1 59.9,20 Z"/>
+    <!-- Marcas cardinales -->
+    <path
+        android:fillColor="#006847"
+        android:pathData="M59,6 L61,6 L61,16 L59,16 Z M59,104 L61,104 L61,114 L59,114 Z M6,59 L16,59 L16,61 L6,61 Z M104,59 L114,59 L114,61 L104,61 Z"/>
+</vector>
